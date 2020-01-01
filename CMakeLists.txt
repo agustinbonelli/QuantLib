@@ -4,6 +4,9 @@ project(QuantLib)
 
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/quantlib.cmake)
 
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 option(BUILD_SHARED_LIBS "Build shared libraries" ${UNIX})
 option(USE_BOOST_DYNAMIC_LIBRARIES "Use the shared version of Boost libraries" ${UNIX})
 if (USE_BOOST_DYNAMIC_LIBRARIES)
@@ -45,7 +48,7 @@ endif (Boost_FOUND)
 
 add_subdirectory(ql)
 add_subdirectory(Examples)
-add_subdirectory(test-suite)
+#add_subdirectory(test-suite)
 
 #
 # Copy across the ANSI config file into the build directory. Users
